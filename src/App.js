@@ -18,17 +18,20 @@ const App = () => {
 
   useEffect(() => {
     let newRate;
-    if (!state.currencies[currency1] || !state.currencies[currency1][currency2]) {
-      getRate(currency1, currency2)
-        .then((res) => {
-          newRate = res.data.rates[currency2];
-          console.log(newRate);
-          updateCurrencyCache(newRate);
-          setRate(newRate);
-        })
-    } else {
-      newRate = state.currencies[currency1][currency2];
-      setRate(newRate);
+    if (currency1.length && currency2.length) {
+      
+      if (!state.currencies[currency1] || !state.currencies[currency1][currency2]) {
+        getRate(currency1, currency2)
+          .then((res) => {
+            console.log("SENT")
+            newRate = res.data.rates[currency2];
+            updateCurrencyCache(newRate);
+            setRate(newRate);
+          })
+      } else {
+        newRate = state.currencies[currency1][currency2];
+        setRate(newRate);
+      }
     }
   }, [currency1, currency2])
 
