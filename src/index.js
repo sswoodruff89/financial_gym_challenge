@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { ExchangeRateProvider } from "./context/exchangeRateContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ExchangeRateProvider>
+      <App />
+    </ExchangeRateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
