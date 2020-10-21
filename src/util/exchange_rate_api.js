@@ -9,6 +9,6 @@ export const getRates = (base = '') => (
 
 export const getRate = (currency1, currency2) => (
     axios.get(
-        `https://api.exchangeratesapi.io/latest?symbols=${currency1},${currency2}`
+        `https://api.exchangeratesapi.io/latest?base=${currency1}&symbols=${currency2}`
     )
 )

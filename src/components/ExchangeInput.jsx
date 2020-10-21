@@ -14,10 +14,10 @@ const ExchangeInput = ({inputName, list, currency, handleCurrency}) => {
                 }
                 >
                 <option disabled value="" >
-                    Select a Currency
+                    -----
                 </option>
-                {list.map(cur => (
-                    <option value={cur} selected={cur === currency ? true : false}>
+                {list.map((cur, i) => (
+                    <option value={cur} key={i} >
                         {cur}
                     </option>
                 ))}

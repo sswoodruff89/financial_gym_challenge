@@ -13,9 +13,12 @@ const reducer = (state, action) => {
   let newState = Object.assign({}, state);
   switch (action.type) {
     case "UPDATE_CURRENCIES":
+      if (!newState.currencies[action.currency1]) {
+        newState.currencies[action.currency1] = {};        
+      }
       newState.currencies[action.currency1][action.currency2] = action.rate;
-      return newState;
 
+      return newState;
     default:
       return state;
   }
